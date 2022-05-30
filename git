@@ -1,0 +1,12 @@
+mkdir PartA
+cd partA
+git --version
+git init
+add file to first.html
+git add first.html
+hit status
+git remote add origin"link"
+git commit -m "hiii"
+git config --global user.name "sammoKhan"
+git status
+git push -u origin master
