@@ -1,0 +1,85 @@
+First.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/JavaScript">
+function fun()
+{
+const myObj={name:document.getElementById("exampleInputName").value,
+email:document.getElementById("exampleInputEmail1").value,
+contact:document.getElementById("exampleInputContact")};
+const myJSON = JSON.stringify(myObj);
+localStorage.setItem("formJSON",myJSON);
+}
+</script>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+rel="stylesheet" integrity="sha384-
+1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+crossorigin="anonymous">
+
+</head>
+<body>
+<form action="second.html">
+<div class="mb-3">
+<div class="mb-3">
+<label for="exampleInputName" class="form-label">Name</label>
+<input type="name" class="form-control" id="exampleInputName">
+</div>
+
+<label for="exampleInputEmail1" class="form-label">Email address</label>
+
+<input type="email" class="form-control" id="exampleInputEmail1" aria-
+describedby="emailHelp">
+
+<div id="emailHelp" class="form-text"></div>
+</div>
+<div class="mb-3">
+<label for="exampleInputContact" class="form-label">Contact Number</label>
+<input type="contact" class="form-control" id="exampleInputContact">
+</div>
+<button type="submit" class="btn btn-primary" onclick="fun()">Submit</button>
+</form>
+</body>
+</html>
+------------------------------------------------------------------------------------------------------------------------------------------------
+Second.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/JavaScript">
+function display()
+{
+let text = localStorage.getItem("formJSON");
+let obj = JSON.parse(text);
+document.getElementById("abc").rows[0].cells[1].innerHTML=obj.name;
+document.getElementById("abc").rows[1].cells[1].innerHTML=obj.email;
+document.getElementById("abc").rows[2].cells[1].innerHTML=obj.contact;
+}
+</script>
+</head>
+
+<body>
+<button type="submit" class="btn btn-primary" onclick="display();">Display</button>
+<p id="xyz"></p>
+<table id="abc">
+<tr>
+<td>Name</td>
+<td></td>
+</tr>
+<tr>
+<td>Email ID</td>
+<td></td>
+</tr>
+<tr>
+<td>Contact No.</td>
+<td></td>
+</tr>
+</table>
+</body>
+</html>
